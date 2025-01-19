@@ -1,0 +1,191 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+    background-size: 400% 400%;
+    animation: gradientAnimation 3s ease infinite;
+}
+
+/* Background Animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Bubble Animation */
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -150px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(7, 15, 236, 0.2);
+    border-radius: 50%;
+    animation: bubbleAnimation 1s infinite;
+}
+
+.bubble:nth-child(1) { left: 10%; animation-duration: 4s; animation-delay: 0s; }
+.bubble:nth-child(2) { left: 20%; animation-duration: 5s; animation-delay: 2s; }
+.bubble:nth-child(3) { left: 35%; animation-duration: 6s; animation-delay: 4s; }
+.bubble:nth-child(4) { left: 50%; animation-duration: 5s; animation-delay: 6s; }
+.bubble:nth-child(5) { left: 65%; animation-duration: 4s; animation-delay: 8s; }
+.bubble:nth-child(6) { left: 80%; animation-duration: 6s; animation-delay: 10s; }
+
+@keyframes bubbleAnimation {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100vh) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Container Styles */
+.container {
+    width: 400px;
+    background: rgba(206, 246, 252, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(243, 251, 7, 0.2);
+    backdrop-filter: blur(1px);
+}
+
+.form-container {
+    display: flex;
+    width: 200%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.form {
+    width: 50%;
+    padding: 40px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    animation: fadeIn 0.8s ease;
+}
+
+/* Form Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(120px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    animation: slideIn 0.8s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: linear-gradient(to right, #2575fc, #6a11cb);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    animation: bounceIn 0.8s ease;
+    transition: background 0.3s;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+button:hover {
+    background: #ace905;
+}
+
+/* Toggle Button Styles */
+.toggle-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: rgba(206, 246, 252, 0.8);
+    border-top: 1px solid #ddd;
+    backdrop-filter: blur(1px);
+}
+
+.toggle-container button {
+    width: 48%;
+    padding: 10px;
+    background: linear-gradient(to right, #2575fc, #6a11cb);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-container button.active {
+    background: linear-gradient(to left, #bbfc25, #11cb65);
+    color: #fff;
+}
